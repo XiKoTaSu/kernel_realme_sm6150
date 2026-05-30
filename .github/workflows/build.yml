@@ -44,9 +44,9 @@ jobs:
       #    sudo rm /bin/python
       #    sudo ln -s /bin/python2.7 /bin/python
           
-      - name: Get GCC4.9 toolchain
+      - name: Get GCC toolchain
         run: |
-          git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -b lineage-19.1 --depth=1 $GITHUB_WORKSPACE/workdir/gcc
+          git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-9.3.git -b lineage-20.0 --depth=1 $GITHUB_WORKSPACE/workdir/gcc
 
       - name: Get Kernel souce
         run: |
@@ -59,7 +59,7 @@ jobs:
           export ARCH="arm64"
           export SUBARCH="arm64"
           export PATH="$GITHUB_WORKSPACE/workdir/gcc/bin/:$PATH"
-          export CROSS_COMPILE="$GITHUB_WORKSPACE/workdir/gcc/bin/aarch64-linux-android-"
+          export CROSS_COMPILE="$GITHUB_WORKSPACE/workdir/gcc/bin/aarch64-buildroot-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
           make O=out X2_defconfig DTB_NAMES="${{ github.event.inputs.target }}"
           make -j$(nproc --all) O=out
