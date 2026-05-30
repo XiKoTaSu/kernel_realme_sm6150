@@ -2,8 +2,8 @@
 VERSION = 4
 PATCHLEVEL = 14
 SUBLEVEL = 218
-EXTRAVERSION =
-NAME = Petit Gorille
+EXTRAVERSION =Port from RealmeX2
+NAME = XiKoTaSu
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
