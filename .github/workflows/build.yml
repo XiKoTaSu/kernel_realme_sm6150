@@ -60,6 +60,7 @@ jobs:
           export SUBARCH="arm64"
           export PATH="$GITHUB_WORKSPACE/workdir/gcc/bin/:$PATH"
           export CROSS_COMPILE="$GITHUB_WORKSPACE/workdir/gcc/bin/aarch64-buildroot-linux-gnu-"
+          export CROSS_COMPILE_ARM32="$GITHUB_WORKSPACE/workdir/gcc/bin/aarch64-buildroot-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
           make O=out X2_defconfig DTB_NAMES="${{ github.event.inputs.target }}"
           make -j$(nproc --all) O=out
